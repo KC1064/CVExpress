@@ -2,20 +2,18 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="w-full text-white px-12 flex justify-between items-center h-24">
-      <div style={{ fontFamily: "resist_medium" }}>
-        <p className="text-3xl h-full">CVExpress</p>
+    <div className="w-full h-20 px-8 flex justify-between items-center">
+      <div className="w-auto text-3xl text-white">CVExpress</div>
+      <div className="w-[25%] flex justify-between items-center text-white">
+        <p className="text-xl">Home</p>
+        <p className="text-xl">Features</p>
+        <p className="text-xl">Guide</p>
+        <p className="text-xl">FAQs</p>
       </div>
-      <div style={{ fontFamily: "resist_medium" }} className="flex gap-8 items-center h-full">
-        <p className="text-lg">Home</p>
-        <p className="text-lg">Features</p>
-        <p className="text-lg">Guide</p>
-        <p className="text-lg">FAQs</p>
-      </div>
-      <div className="flex items-center h-full">
+      <div className="w-auto">
         <button
-          style={{ fontFamily: "resist_medium" }}
-          className="pointer bg-gradient-to-r from-[#5C3699] to-[#0C1052] border-2 px-4 py-1 rounded-md text-lg flex items-center"
+          type="button"
+          className="border-2 px-6 py-1 text-white rounded-md"
         >
           Sign Up
         </button>
