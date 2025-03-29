@@ -1,21 +1,16 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "mochia";
-  src: url("./assets/mochica-font-1740715024-0/mochica-personal-use-only.otf");
+  font-family: "header";
+  src: url(../public/fonts/meta-futura-font-1743253343-0/meta-futura-demo.otf);
 }
 
 @font-face {
-  font-family: "resist_bold";
-  src: url("./assets/resist-sans-font-family-1740715112-0/trial-resistdisplay-bold.otf");
+  font-family: "text";
+  src: url(../public/fonts/gilroy-free/Gilroy-FREE/Gilroy-Light.otf);
 }
 
 @font-face {
-  font-family: "resist_light";
-  src: url("./assets/resist-sans-font-family-1740715112-0/trial-resistdisplay-light.otf");
-}
-
-@font-face {
-  font-family: "resist_medium";
-  src: url("./assets/resist-sans-font-family-1740715112-0/trial-resisttext-medium.otf");
+  font-family: "text-bold";
+  src: url(../public/fonts/gilroy-free/Gilroy-FREE/Gilroy-ExtraBold.otf);
 }
