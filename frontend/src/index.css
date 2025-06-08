@@ -2,15 +2,15 @@
 
 @font-face {
   font-family: "header";
-  src: url(../public/fonts/meta-futura-font-1743253343-0/meta-futura-demo.otf);
+  src: url(/fonts/meta-futura-font-1743253343-0/meta-futura-demo.otf);
 }
 
 @font-face {
   font-family: "text";
-  src: url(../public/fonts/gilroy-free/Gilroy-FREE/Gilroy-Light.otf);
+  src: url(/fonts/gilroy-free/Gilroy-FREE/Gilroy-Light.otf);
 }
 
 @font-face {
   font-family: "text-bold";
-  src: url(../public/fonts/gilroy-free/Gilroy-FREE/Gilroy-ExtraBold.otf);
+  src: url(/fonts/gilroy-free/Gilroy-FREE/Gilroy-ExtraBold.otf);
 }
