@@ -1,5 +1,6 @@
 const User = require("../models/user.model");
 const jwt = require("jsonwebtoken");
+const sendMail = require("../utils/sendMail");
 
 //SignUp Controller
 const signup = async (req, res) => {
@@ -29,6 +30,7 @@ const signup = async (req, res) => {
       email,
       password,
     });
+    sendMail(email,fullName);
 
     const token = jwt.sign(
       { userId: newUser._id },
