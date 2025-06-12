@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { motion } from "framer-motion";
-import Features from "./Features";
-import FAQs from "./FAQs";
-import Guide from "./Guide";
-import Scanner from "./Scanner";
+import Features from "../sections/Features";
+import FAQs from "../sections/FAQs";
+import Guide from "../sections/Guide";
+import Scanner from "../sections/Scanner";
 import Footer from "../components/Footer";
 
 const Home = () => {
