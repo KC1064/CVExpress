@@ -1,9 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Buttons = ({ type, children }) => {
+const Buttons = ({ type, children, onClick }) => {
   return (
     <motion.button
+      onClick={onClick}
       style={{
         fontFamily: "text",
       }}
