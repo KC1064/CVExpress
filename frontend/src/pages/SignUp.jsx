@@ -1,7 +1,43 @@
-import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState } from "react";
+import axios from "axios";
+import { AnimatePresence, motion } from "framer-motion";
 
 const SignUp = ({ isOpen, onClose, onSwitchToLogin }) => {
+  const [formData, setFormData] = useState({ fullName: "", email: "", password: "" });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/v1/signup",
+        {
+          fullName: formData.fullName,
+          email: formData.email,
+          password: formData.password,
+        }
+      );
+      console.log("Signup successful:", response.data);
+      alert("Signup successful!");
+      onClose(); // Close the signup modal on success
+    } catch (err) {
+      console.error("Signup failed:", err.response ? err.response.data : err.message);
+      setError(err.response ? err.response.data.message : "Signup failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -62,15 +98,19 @@ const SignUp = ({ isOpen, onClose, onSwitchToLogin }) => {
                 </div>
 
                 {/* Form */}
-                <form className="w-full space-y-4">
+                <form onSubmit={handleSubmit} className="w-full space-y-4">
                   <div>
                     <label className="block text-sm font-medium mb-1">
                       Full Name
                     </label>
                     <input
                       type="text"
+                      name="fullName"
                       className="w-full p-2 border rounded-md"
                       placeholder="Enter your full name"
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      required
                     />
                   </div>
                   <div>
@@ -79,8 +119,12 @@ const SignUp = ({ isOpen, onClose, onSwitchToLogin }) => {
                     </label>
                     <input
                       type="email"
+                      name="email"
                       className="w-full p-2 border rounded-md"
                       placeholder="Enter your email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
                     />
                   </div>
                   <div>
@@ -89,16 +133,25 @@ const SignUp = ({ isOpen, onClose, onSwitchToLogin }) => {
                     </label>
                     <input
                       type="password"
+                      name="password"
                       className="w-full p-2 border rounded-md"
                       placeholder="Create a password"
+                      value={formData.password}
+                      onChange={handleChange}
+                      required
                     />
                   </div>
 
+                  {error && (
+                    <div className="text-red-600 text-sm font-medium">{error}</div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full bg-[#D22223] text-white py-2 rounded-md font-bold hover:bg-[#b31d1e] transition-colors"
+                    disabled={loading}
+                    className="w-full bg-[#D22223] text-white py-2 rounded-md font-bold cursor-pointer hover:bg-[#b31d1e] transition-colors disabled:opacity-50"
                   >
-                    Sign Up
+                    {loading ? "Signing up..." : "Sign Up"}
                   </button>
                 </form>
 
